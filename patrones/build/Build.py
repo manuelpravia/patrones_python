@@ -31,7 +31,7 @@ class ConcreteBuilder(Builder):
     def get_result(self):
         return self.product
 
-class Director:
+class Orquestador:
     def __init__(self, builder):
         self.builder = builder
 
@@ -39,9 +39,13 @@ class Director:
         self.builder.build_part_a()
         self.builder.build_part_b()
 
-# Uso
+# Ejemplo de Uso
 builder = ConcreteBuilder()
-director = Director(builder)
+director = Orquestador(builder)
 director.construct()
 product = builder.get_result()
 product.show()
+
+
+# Patron que construye un producto paso a paso
+# Utilizando un director para guiar el proceso de construcción
